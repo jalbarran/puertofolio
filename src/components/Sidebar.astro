@@ -12,10 +12,10 @@ const { selectedItem } = Astro.props;
   class="sidebar w-nav"
 >
   <div class="nav-content">
-    <a href="/" class="w-nav-brand" aria-label="home">
+    <a href="/puertofolio/" class="w-nav-brand" aria-label="home">
       <div class="niv-data">
         <img
-          src="/assets/avatar.jpg"
+          src="/puertofolio/assets/avatar.jpg"
           loading="eager"
           alt="Profile picture"
           class="niv-image"
@@ -29,13 +29,13 @@ const { selectedItem } = Astro.props;
 
     <nav role="navigation" class="w-nav-menu">
       <a
-        href="/"
+        href="/puertofolio/"
         class={`nav-link-container w-inline-block ${
           selectedItem === "home" ? "w--current" : ""
         }`}
       >
         <img
-          src="/assets/home.svg"
+          src="/puertofolio/assets/home.svg"
           loading="eager"
           alt=""
           class="nav-link-image"
@@ -43,7 +43,7 @@ const { selectedItem } = Astro.props;
         <div>Home</div>
       </a>
       <a
-        href="/software-development"
+        href="/puertofolio/software-development"
         class={`nav-link-container w-inline-block ${
           selectedItem === "software-development" ? "w--current" : ""
         }`}
@@ -52,7 +52,7 @@ const { selectedItem } = Astro.props;
           : undefined}
       >
         <img
-          src="/assets/code.svg"
+          src="/puertofolio/assets/code.svg"
           loading="eager"
           alt=""
           class="nav-link-image"
@@ -60,13 +60,13 @@ const { selectedItem } = Astro.props;
         <div>Software development</div>
       </a>
       <a
-        href="/personal-projects"
+        href="/puertofolio/personal-projects"
         class={`nav-link-container w-inline-block ${
           selectedItem === "personal-projects" ? "w--current" : ""
         }`}
       >
         <img
-          src="/assets/favorite.svg"
+          src="/puertofolio/assets/favorite.svg"
           loading="eager"
           alt=""
           class="nav-link-image"
@@ -82,7 +82,12 @@ const { selectedItem } = Astro.props;
       role="button"
       tabindex="0"
     >
-      <img src="/assets/menu.svg" loading="eager" alt="" class="navbar-icon" />
+      <img
+        src="/puertofolio/assets/menu.svg"
+        loading="eager"
+        alt=""
+        class="navbar-icon"
+      />
     </div>
   </div>
 

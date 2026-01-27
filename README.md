@@ -18,7 +18,7 @@ This project is a high-performance, modern portfolio built with **Astro** for op
 
 - **Framework:** [Astro](https://astro.build/) (Static Site Generation)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS
-- **Deployment:** Optimized for static hosting platforms (Netlify, Vercel, or GitHub Pages)
+- **Deployment:** [GitHub Pages](https://pages.github.com/) via GitHub Actions
 - **Icons & Assets:** SVGs for crisp, resolution-independent visuals
 
 ## 🛠 Project Structure
@@ -59,6 +59,12 @@ To run this project locally:
    ```bash
    npm run build
    ```
+
+## 🚢 Deployment
+
+This portfolio is automatically deployed to **GitHub Pages** using **GitHub Actions**. Any changes pushed to the `main` branch trigger a new build and deployment process.
+
+The deployment configuration can be found in [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml).
 
 ## 📬 Contact
 
