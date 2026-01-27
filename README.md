@@ -39,8 +39,8 @@ To run this project locally:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/jalbarran-portfolio.git
-   cd jalbarran-portfolio
+   git clone https://github.com/jalbarran/puertofolio.git
+   cd puertofolio
    ```
 
 2. **Install dependencies:**
@@ -65,7 +65,7 @@ To run this project locally:
 I'm always open to collaborating on interesting projects or discussing new opportunities. Feel free to reach out!
 
 - **Email:** jaal1388@gmail.com
-- **Website:** [Your Portfolio Link Here]
+- **Website:** [puertofolio](https://github.com/jalbarran/puertofolio)
 
 ---
 
