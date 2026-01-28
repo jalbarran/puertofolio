@@ -4,15 +4,17 @@ import Sidebar from "../components/Sidebar.astro";
 import "../styles/global.css";
 interface Props {
   title: string;
+  description: string;
+  image: string;
   selectedItem: string;
 }
 
-const { title, selectedItem } = Astro.props;
+const { title, description, image, selectedItem } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <Header title={title} />
+  <Header title={title} description={description} image={image} />
   <body>
     <div class="content">
       <Sidebar selectedItem={selectedItem} />
