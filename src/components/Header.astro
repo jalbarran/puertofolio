@@ -1,17 +1,50 @@
 ---
 import { ClientRouter } from "astro:transitions";
-interface HeaderProps {
+import { SEO } from "astro-seo";
+
+interface Props {
   title: string;
+  description: string;
+  image: string;
 }
-const { title } = Astro.props as HeaderProps;
+const { title, description, image } = Astro.props as Props;
+
+// Construimos la URL absoluta para la imagen (importante para redes sociales)
+const resolvedImageWithDomain = new URL(image, Astro.site).toString();
+// Esto generará una URL como: /og/Mi%20Primer%20Post.png
+const ogImageUrl = `/og/${encodeURIComponent(title)}.png`;
 ---
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>{title}</title>
   <ClientRouter />
-  <meta content={title} property="og:title" />
-  <meta content={title} property="twitter:title" />
+  <SEO
+    title={title}
+    description={description}
+    canonical={Astro.url.toString()}
+    openGraph={{
+      basic: {
+        title: title,
+        type: "website",
+        image: ogImageUrl,
+      },
+      image: {
+        alt: "Portfolio",
+      },
+    }}
+    twitter={{
+      creator: "@albjonathan",
+      card: "summary_large_image",
+    }}
+    extend={{
+      meta: [
+        { name: "twitter:image", content: resolvedImageWithDomain },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+      ],
+    }}
+  />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link
     href="/puertofolio/assets/styles.css"
