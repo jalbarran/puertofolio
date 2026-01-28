@@ -1,49 +1,27 @@
 ---
-import Header from "../components/Header.astro";
 import Project from "../components/Project.astro";
-import Sidebar from "../components/Sidebar.astro";
+import Layout from "../layouts/Layout.astro";
 const projects = [];
 ---
 
-<!doctype html>
-<html>
-  <Header title="Software Development | Jonathan Albarran" />
-  <body>
-    <div class="content">
-      <Sidebar selectedItem="software-development" />
-      <nav class="main">
-        <div class="container">
-          <div class="back-nav-container">
-            <a href="/puertofolio/" class="back-nav-button w-inline-block"
-              ><img
-                src="/puertofolio/assets/back.svg"
-                loading="lazy"
-                alt=""
-                class="back-nav-img"
-              />
-              <div>Back</div></a
-            >
-          </div>
-          <div class="content-container">
-            <h1>Software Development</h1>
-            <section class="items-container">
-              <div class="resouce-items">
-                {
-                  projects.map((project) => (
-                    <Project
-                      title={project.title}
-                      desc={project.desc}
-                      tech={project.tech}
-                    />
-                  ))
-                }
-              </div>
-            </section>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
-  </body>
-</html>
+<Layout
+  title="Software Development | Jonathan Albarran"
+  selectedItem="software-development"
+>
+  <div class="content-container">
+    <h1>Software Development</h1>
+    <section class="items-container">
+      <div class="resouce-items">
+        {
+          projects.map((project) => (
+            <Project
+              title={project.title}
+              desc={project.desc}
+              tech={project.tech}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Layout>
