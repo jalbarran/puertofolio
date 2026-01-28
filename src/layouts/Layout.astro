@@ -1,24 +1,60 @@
 ---
+import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
 import "../styles/global.css";
 interface Props {
   title: string;
+  selectedItem: string;
 }
 
-const { title } = Astro.props;
+const { title, selectedItem } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
+  <Header title={title} />
   <body>
-    <slot />
+    <div class="content">
+      <Sidebar selectedItem={selectedItem} />
+      <nav class="main">
+        <div class="container">
+          <slot />
+          <div class="projects-section">
+            <!-- Software Development -->
+            <a
+              href="/puerttofolio/software-development"
+              class="projects-container"
+            >
+              <div class="single-projects-category">
+                <div class="projects-category-image-container">
+                  <img
+                    src="/puertofolio/assets/browser.svg"
+                    loading="lazy"
+                    alt=""
+                    class="projects-category-image"
+                  />
+                </div>
+              </div>
+              <div class="single-projects-content">
+                <h4>Software Development</h4>
+                <div class="tech-tools-container">
+                  <div class="mini-label-white gray-color">
+                    Technologies &amp; tools
+                  </div>
+                  <div class="chips-container chips-container-small-width">
+                    <div class="single-chip small-chip">Node.js</div>
+                    <div class="single-chip small-chip">MongoDB</div>
+                    <div class="single-chip small-chip">TypeScript</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
   </body>
 </html>
 <style is:global>
