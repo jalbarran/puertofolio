@@ -12,7 +12,7 @@ const { title, description, image } = Astro.props as Props;
 // Construimos la URL absoluta para la imagen (importante para redes sociales)
 const resolvedImageWithDomain = new URL(image, Astro.site).toString();
 // Esto generará una URL como: /og/Mi%20Primer%20Post.png
-const ogImageUrl = `puertofolio/og/${encodeURIComponent(title)}.png`;
+const ogImageUrl = `/puertofolio/og/${encodeURIComponent(title)}.png`;
 ---
 
 <head>
