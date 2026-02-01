@@ -6,10 +6,16 @@ import path from "node:path";
 export async function getStaticPaths() {
   return [
     { params: { title: "Jonathan Albarrán" } },
+    { params: { title: "Proyectos Personales" } },
+    { params: { title: "Experiencia" } },
+    { params: { title: "Inteligencia Artificial" } },
+    { params: { title: "Habilidades" } },
+    { params: { title: "Contacto" } },
+    { params: { title: "Inicio" } },
+    { params: { title: "Acerca de" } },
     { params: { title: "Personal Projects" } },
-    { params: { title: "Software Development Experience" } },
-    { params: { title: "Artificial Intelligence" } },
     { params: { title: "Skills" } },
+    { params: { title: "Experience" } },
     // ...
   ];
 }
@@ -21,7 +27,6 @@ export async function GET({ params }: { params: { title: string } }) {
   const fontData = fs.readFileSync(
     path.resolve("./public/fonts/Inter-Bold.ttf")
   );
-console.log(decodeURIComponent(title));
   // 2. Crea el diseño de tu tarjeta en HTML/CSS (estilo flexbox)
   const svg = await satori(
     {
@@ -55,7 +60,7 @@ console.log(decodeURIComponent(title));
   const pngData = resvg.render();
   const pngBuffer = pngData.asPng();
 
-  return new Response(pngBuffer, {
+  return new Response(new Uint8Array(pngBuffer), {
     headers: { "Content-Type": "image/png" },
   });
 }
