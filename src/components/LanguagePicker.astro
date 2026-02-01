@@ -10,10 +10,10 @@ const route = getRouteFromUrl(Astro.url);
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<div class="flex items-center gap-2 justify-center">
+<div class="block md:flex pl-4 items-center gap-2 justify-center">
   {
     Object.entries(languages).map(([currentLang, label]) => {
-      const translatePath = useTranslatedPath(languages[currentLang]);
+      const translatePath = useTranslatedPath(currentLang as "en" | "es");
       return (
         <>
           <a
