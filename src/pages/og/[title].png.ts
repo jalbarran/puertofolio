@@ -16,6 +16,8 @@ export async function getStaticPaths() {
     { params: { title: "Personal Projects" } },
     { params: { title: "Skills" } },
     { params: { title: "Experience" } },
+    { params: { title: "Artificial Intelligence" } },
+    { params: { title: "Contact" } },
     // ...
   ];
 }
