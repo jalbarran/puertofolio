@@ -11,11 +11,7 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 console.log("lang", lang);
 const t = useTranslations(lang);
-console.log("Astro.preferredLocale", Astro.preferredLocale);
-console.log("Astro.preferredLocaleList", Astro.preferredLocaleList);
-console.log("Astro.currentLocale", Astro.currentLocale);
-console.log("Astro.url", Astro.url);
-console.log("t", t);
+
 export async function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
 }
@@ -38,141 +34,178 @@ export async function getStaticPaths() {
     <a href="mailto:jaal1388@gmail.com" class="button w-button"
       >{t("contact")}</a
     >
-    <div class="projects-section">
-      <h3>{t("projects")}</h3>
-      <a href="/puerttofolio/experience" class="projects-container">
-        <div class="single-projects-category">
-          <div class="projects-category-image-container">
-            <img
-              src="/puertofolio/assets/code.svg"
-              loading="lazy"
-              alt=""
-              class="projects-category-image"
-            />
-          </div>
+    <div>
+      <div class="projects-section">
+        <div class="flex pt-10 items-center">
+          <div class="flex-grow border-t border-gray-400"></div>
+          <h3 class="flex-shrink mx-4 text-gray-400">{t("currentProjects")}</h3>
+          <div class="flex-grow border-t border-gray-400"></div>
         </div>
-        <div class="single-projects-content">
-          <h4>{lastProject.data.title}</h4>
-          <h3>{lastProject.data.description}</h3>
-          <p>{lastProject.body}</p>
-          <div class="tech-tools-container">
-            <div class="mini-label-white gray-color">
-              {t("technologies")}
-            </div>
-            <div class="chips-container chips-container-small-width">
-              {
-                lastProject.data.skills.map((skill) => (
-                  <div class="single-chip small-chip">{skill}</div>
-                ))
-              }
+        <a
+          href={`/puertofolio/${lang}/experience`}
+          class="projects-container mx-auto rounded-xl shadow-lg border border-gray-500 bg-neutral-800 p-6"
+        >
+          <div class="single-projects-category">
+            <div class="projects-category-image-container">
+              <img
+                src="/puertofolio/assets/code.svg"
+                loading="lazy"
+                alt=""
+                class="projects-category-image"
+              />
             </div>
           </div>
-        </div>
-      </a>
-      <a href="/puertofolio/experience" class="button w-button"
-        >{t("viewMore")}</a
-      >
-    </div>
-    <div class="projects-section">
-      <h3>{t("nav.personalProjects")}</h3>
-      <a href="/puerttofolio/personal-projects" class="projects-container">
-        <div class="single-projects-category">
-          <div class="projects-category-image-container">
-            <img
-              src="/puertofolio/assets/favorite.svg"
-              loading="lazy"
-              alt=""
-              class="projects-category-image"
-            />
-          </div>
-        </div>
-        <div class="single-projects-content">
-          <h4>{lastPersonalProject.data.title}</h4>
-          <h3>{lastPersonalProject.data.description}</h3>
-          <p>{lastPersonalProject.body}</p>
-          <div class="tech-tools-container">
-            <div class="mini-label-white gray-color">
-              {t("technologies")}
-            </div>
-            <div class="chips-container chips-container-small-width">
-              {
-                lastPersonalProject.data.skills.map((skill) => (
-                  <div class="single-chip small-chip">{skill}</div>
-                ))
-              }
+          <div class="single-projects-content">
+            <h4>{lastProject.data.title}</h4>
+            <h3>{lastProject.data.description}</h3>
+            <p>{lastProject.body}</p>
+            <div class="tech-tools-container">
+              <div class="mini-label-white gray-color">
+                {t("technologies")}
+              </div>
+              <div class="chips-container chips-container-small-width">
+                {
+                  lastProject.data.skills.map((skill) => (
+                    <div class="single-chip small-chip">{skill}</div>
+                  ))
+                }
+              </div>
             </div>
           </div>
+        </a>
+        <a href={`/puertofolio/${lang}/experience`} class="button w-button"
+          >{t("viewMore")}</a
+        >
+      </div>
+      <div class="projects-section">
+        <div class="flex pt-10 items-center">
+          <div class="flex-grow border-t border-gray-400"></div>
+          <h3 class="flex-shrink mx-4 text-gray-400">
+            {t("nav.personalProjects")}
+          </h3>
+          <div class="flex-grow border-t border-gray-400"></div>
         </div>
-      </a>
-      <a href="/puertofolio/personal-projects" class="button w-button"
-        >{t("viewMore")}</a
-      >
-    </div>
-    <div class="projects-section">
-      <h3>{t("nav.skills")}</h3>
-      <a href="/puerttofolio/skills" class="projects-container">
-        <div class="single-projects-category">
-          <div class="projects-category-image-container">
-            <img
-              src="/puertofolio/assets/hammer.svg"
-              loading="lazy"
-              alt=""
-              class="projects-category-image"
-            />
-          </div>
-        </div>
-        <div class="single-projects-content">
-          <h4>{t("nav.skills")}</h4>
-          <h3>{t("nav.skills")}</h3>
-          <p>{t("nav.skills")}</p>
-          <div class="tech-tools-container">
-            <div class="mini-label-white gray-color">
-              {t("technologies")}
-            </div>
-            <div class="chips-container chips-container-small-width">
-              {
-                lastProject.data.skills.map((skill) => (
-                  <div class="single-chip small-chip">{skill}</div>
-                ))
-              }
+        <a
+          href={`/puertofolio/${lang}/personal-projects`}
+          class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
+        >
+          <div class="single-projects-category">
+            <div class="projects-category-image-container">
+              <img
+                src="/puertofolio/assets/favorite.svg"
+                loading="lazy"
+                alt=""
+                class="projects-category-image"
+              />
             </div>
           </div>
-        </div>
-      </a>
-      <a href="/puertofolio/skills" class="button w-button">View More</a>
-    </div>
-    <div class="projects-section">
-      <h3>{t("nav.ai")}</h3>
-      <a href="/puerttofolio/ai" class="projects-container">
-        <div class="single-projects-category">
-          <div class="projects-category-image-container">
-            <img
-              src="/puertofolio/assets/ai.svg"
-              loading="lazy"
-              alt=""
-              class="projects-category-image"
-            />
-          </div>
-        </div>
-        <div class="single-projects-content">
-          <h4>{t("nav.ai")}</h4>
-          <h3>{t("nav.ai")}</h3>
-          <p>{t("nav.ai")}</p>
-          <div class="tech-tools-container">
-            <div class="mini-label-white gray-color">
-              {t("technologies")}
-            </div>
-            <div class="chips-container chips-container-small-width">
-              {
-                lastProject.data.skills.map((skill) => (
-                  <div class="single-chip small-chip">{skill}</div>
-                ))
-              }
+          <div class="single-projects-content">
+            <h4>{lastPersonalProject.data.title}</h4>
+            <h3>{lastPersonalProject.data.description}</h3>
+            <p>{lastPersonalProject.body}</p>
+            <div class="tech-tools-container">
+              <div class="mini-label-white gray-color">
+                {t("technologies")}
+              </div>
+              <div class="chips-container chips-container-small-width">
+                {
+                  lastPersonalProject.data.skills.map((skill) => (
+                    <div class="single-chip small-chip">{skill}</div>
+                  ))
+                }
+              </div>
             </div>
           </div>
+        </a>
+        <a
+          href={`/puertofolio/${lang}/personal-projects`}
+          class="button w-button">{t("viewMore")}</a
+        >
+      </div>
+      <div class="projects-section">
+        <div class="flex pt-10 items-center">
+          <div class="flex-grow border-t border-gray-400"></div>
+          <h3 class="flex-shrink mx-4 text-gray-400">{t("nav.skills")}</h3>
+          <div class="flex-grow border-t border-gray-400"></div>
         </div>
-      </a>
-      <a href="/puertofolio/skills" class="button w-button">{t("viewMore")}</a>
+        <a
+          href={`/puertofolio/${lang}/skills`}
+          class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
+        >
+          <div class="single-projects-category">
+            <div class="projects-category-image-container">
+              <img
+                src="/puertofolio/assets/hammer.svg"
+                loading="lazy"
+                alt=""
+                class="projects-category-image"
+              />
+            </div>
+          </div>
+          <div class="single-projects-content">
+            <h4>{t("nav.skills")}</h4>
+            <h3>{t("nav.skills")}</h3>
+            <p>{t("nav.skills")}</p>
+            <div class="tech-tools-container">
+              <div class="mini-label-white gray-color">
+                {t("technologies")}
+              </div>
+              <div class="chips-container chips-container-small-width">
+                {
+                  lastProject.data.skills.map((skill) => (
+                    <div class="single-chip small-chip">{skill}</div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href={`/puertofolio/${lang}/skills`} class="button w-button"
+          >{t("viewMore")}</a
+        >
+      </div>
+      <div class="projects-section">
+        <div class="flex pt-10 items-center">
+          <div class="flex-grow border-t border-gray-400"></div>
+          <h3 class="flex-shrink mx-4 text-gray-400">{t("nav.ai")}</h3>
+          <div class="flex-grow border-t border-gray-400"></div>
+        </div>
+        <a
+          href={`/puertofolio/${lang}/ai`}
+          class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
+        >
+          <div class="single-projects-category">
+            <div class="projects-category-image-container">
+              <img
+                src="/puertofolio/assets/ai.svg"
+                loading="lazy"
+                alt=""
+                class="projects-category-image"
+              />
+            </div>
+          </div>
+          <div class="single-projects-content">
+            <h4>{t("nav.ai")}</h4>
+            <h3>{t("nav.ai")}</h3>
+            <p>{t("nav.ai")}</p>
+            <div class="tech-tools-container">
+              <div class="mini-label-white gray-color">
+                {t("technologies")}
+              </div>
+              <div class="chips-container chips-container-small-width">
+                {
+                  lastProject.data.skills.map((skill) => (
+                    <div class="single-chip small-chip">{skill}</div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href={`/puertofolio/${lang}/ai`} class="button w-button"
+          >{t("viewMore")}</a
+        >
+      </div>
     </div>
   </main>
 </Layout>

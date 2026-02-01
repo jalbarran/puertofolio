@@ -17,10 +17,6 @@ section {
   display: block;
 }
 
-a {
-  background-color: rgba(0, 0, 0, 0);
-}
-
 a:active,
 a:hover {
   outline: 0;
@@ -508,6 +504,7 @@ p {
   flex-direction: column;
   justify-content: flex-end;
   display: flex;
+  padding-bottom: 12px;
 }
 
 .back-nav-container {
