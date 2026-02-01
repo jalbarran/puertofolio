@@ -1,0 +1,35 @@
+---
+import Project from "../../components/Project.astro";
+import Layout from "../../layouts/Layout.astro";
+const projects = [];
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
+---
+
+<Layout
+  title={t("nav.experience")}
+  description={t("experience.description")}
+  image="/puertofolio/assets/preview.png"
+  selectedItem="experience"
+>
+  <div class="content-container">
+    <h1>{t("nav.experience")}</h1>
+    <section class="items-container">
+      <div class="resouce-items">
+        {
+          projects.map((project) => (
+            <Project
+              title={project.title}
+              desc={project.desc}
+              tech={project.tech}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,5 +1,14 @@
 ---
 const { selectedItem } = Astro.props;
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import LanguagePicker from "./LanguagePicker.astro";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+function handleTarget(href: string) {
+  return getRelativeLocaleUrl(lang, href);
+}
 ---
 
 <aside
@@ -12,24 +21,24 @@ const { selectedItem } = Astro.props;
   class="sidebar w-nav"
 >
   <div class="nav-content">
-    <a href="/puertofolio/" class="w-nav-brand" aria-label="home">
+    <a href={handleTarget("/")} class="w-nav-brand" aria-label="home">
       <div class="niv-data">
         <img
-          src="/puertofolio/assets/avatar.jpg"
+          src="/puertofolio/assets/ja.svg"
           loading="eager"
           alt="Profile picture"
           class="niv-image"
         />
         <div>
-          <div class="label-white">Jonathan Albarran</div>
-          <div class="label-gray">Software Engineer</div>
+          <div class="label-white">{t("title")}</div>
+          <div class="label-gray">{t("engineer")}</div>
         </div>
       </div>
     </a>
 
     <nav role="navigation" class="w-nav-menu">
       <a
-        href="/puertofolio/"
+        href={handleTarget("/")}
         class={`nav-link-container w-inline-block ${
           selectedItem === "home" ? "w--current" : ""
         }`}
@@ -40,16 +49,14 @@ const { selectedItem } = Astro.props;
           alt=""
           class="nav-link-image"
         />
-        <div>Home</div>
+        <div>{t("nav.home")}</div>
       </a>
       <a
-        href="/puertofolio/software-development"
+        href={handleTarget("/experience")}
         class={`nav-link-container w-inline-block ${
-          selectedItem === "software-development" ? "w--current" : ""
+          selectedItem === "experience" ? "w--current" : ""
         }`}
-        aria-current={selectedItem === "software-development"
-          ? "page"
-          : undefined}
+        aria-current={selectedItem === "experience" ? "page" : undefined}
       >
         <img
           src="/puertofolio/assets/code.svg"
@@ -57,10 +64,10 @@ const { selectedItem } = Astro.props;
           alt=""
           class="nav-link-image"
         />
-        <div>Software development</div>
+        <div>{t("nav.experience")}</div>
       </a>
       <a
-        href="/puertofolio/personal-projects"
+        href={handleTarget("/personal-projects")}
         class={`nav-link-container w-inline-block ${
           selectedItem === "personal-projects" ? "w--current" : ""
         }`}
@@ -71,7 +78,35 @@ const { selectedItem } = Astro.props;
           alt=""
           class="nav-link-image"
         />
-        <div>Personal projects</div>
+        <div>{t("nav.personalProjects")}</div>
+      </a>
+      <a
+        href={handleTarget("/skills")}
+        class={`nav-link-container w-inline-block ${
+          selectedItem === "skills" ? "w--current" : ""
+        }`}
+      >
+        <img
+          src="/puertofolio/assets/hammer.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>{t("nav.skills")}</div>
+      </a>
+      <a
+        href={handleTarget("/ai")}
+        class={`nav-link-container w-inline-block ${
+          selectedItem === "ai" ? "w--current" : ""
+        }`}
+      >
+        <img
+          src="/puertofolio/assets/ai.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>{t("nav.ai")}</div>
       </a>
     </nav>
 
@@ -89,6 +124,7 @@ const { selectedItem } = Astro.props;
         class="navbar-icon"
       />
     </div>
+    <LanguagePicker />
   </div>
 
   <script>

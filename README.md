@@ -1,4 +1,4 @@
-# Jonathan Albarran | Full-Stack Developer Portfolio
+# Jonathan Albarrán | Full-Stack Developer Portfolio
 
 Welcome to my personal portfolio project! This repository contains the source code for my professional portfolio website, designed to showcase my software development journey, personal projects, and technical expertise.
 
@@ -20,6 +20,15 @@ This project is a high-performance, modern portfolio built with **Astro** for op
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS
 - **Deployment:** [GitHub Pages](https://pages.github.com/) via GitHub Actions
 - **Icons & Assets:** SVGs for crisp, resolution-independent visuals
+
+## 🧠 What I Learned
+
+Implementing this portfolio was a great opportunity to refine my skills and explore new technologies from a senior perspective. Key takeaways include:
+
+- **Senior-Level Architecture & Best Practices:** Focused on creating a highly maintainable and scalable codebase by implementing a robust **Internationalization (i18n)** system, applying advanced **SEO** techniques (semantic HTML, structured data), and strictly following **DRY (Don't Repeat Yourself)** principles for maximum code reusability.
+- **Modern SSG Frameworks (Astro):** Deepened my expertise in **Astro** to build a high-performance static site, leveraging its zero-JS-by-default architecture and component-driven model to achieve superior speed and SEO.
+- **DevOps & CI/CD Automation:** Architected a seamless delivery pipeline using **GitHub Actions** to automate the build and deployment process to **GitHub Pages**, ensuring a reliable and efficient release cycle.
+- **Utility-First Styling & Asset Optimization:** Leveraged **Tailwind CSS** for rapid and maintainable UI development. Additionally, refined my skills in **Custom SVG Manipulation**, directly editing SVG files to ensure crisp, resolution-independent visuals and optimized performance.
 
 ## 🛠 Project Structure
 

@@ -1,0 +1,30 @@
+---
+import { languages } from "../i18n/ui";
+import {
+  getRouteFromUrl,
+  getLangFromUrl,
+  useTranslatedPath,
+} from "../i18n/utils";
+
+const route = getRouteFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+---
+
+<div class="flex items-center gap-2 justify-center">
+  {
+    Object.entries(languages).map(([currentLang, label]) => {
+      const translatePath = useTranslatedPath(currentLang);
+      return (
+        <>
+          <a
+            href={"/puertofolio" + translatePath(`/${route ? route : ""}`)}
+            class={`text-xs font-bold tracking-widest transition-all duration-300 ${currentLang === lang ? "text-white" : "text-gray-500 hover:text-gray-300"}`}
+          >
+            {label}
+          </a>
+          {currentLang == "en" && <span class="w-[1px] h-3 bg-white/20" />}
+        </>
+      );
+    })
+  }
+</div>

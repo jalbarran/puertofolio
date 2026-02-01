@@ -1,17 +1,20 @@
 ---
-import Project from "../components/Project.astro";
-import Layout from "../layouts/Layout.astro";
+import Project from "../../components/Project.astro";
+import Layout from "../../layouts/Layout.astro";
 const projects = [];
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
 ---
 
 <Layout
-  title="Software Development"
-  description="Detailed information about Software Development Projects by Jonathan Albarran, experience, skills and technology stack."
+  title="Personal Projects"
+  description="Detailed information about Personal Projects by Jonathan Albarrán, experience, skills and technology stack."
   image="/puertofolio/assets/preview.png"
-  selectedItem="software-development"
+  selectedItem="personal-projects"
 >
   <div class="content-container">
-    <h1>Software Development</h1>
+    <h1>Personal Projects</h1>
     <section class="items-container">
       <div class="resouce-items">
         {

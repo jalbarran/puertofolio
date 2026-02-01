@@ -1,0 +1,178 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const lastProject = (await getCollection("projects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+)[0];
+const lastPersonalProject = (await getCollection("personalProjects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+)[0];
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+console.log("lang", lang);
+const t = useTranslations(lang);
+console.log("Astro.preferredLocale", Astro.preferredLocale);
+console.log("Astro.preferredLocaleList", Astro.preferredLocaleList);
+console.log("Astro.currentLocale", Astro.currentLocale);
+console.log("Astro.url", Astro.url);
+console.log("t", t);
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
+---
+
+<Layout
+  title="Jonathan Albarrán"
+  description="Detailed information about Jonathan Albarrán, preferences, experience, skills and technology stack used in projects."
+  image="/puertofolio/assets/preview.png"
+  selectedItem="home"
+>
+  <main class="fold-content-container">
+    <div class="fold-content">
+      <h1>{t("title")}</h1>
+      <h2>{t("subtitle")}</h2>
+      <p>
+        {t("description")}
+      </p>
+    </div>
+    <a href="mailto:jaal1388@gmail.com" class="button w-button"
+      >{t("contact")}</a
+    >
+    <div class="projects-section">
+      <h3>{t("projects")}</h3>
+      <a href="/puerttofolio/experience" class="projects-container">
+        <div class="single-projects-category">
+          <div class="projects-category-image-container">
+            <img
+              src="/puertofolio/assets/code.svg"
+              loading="lazy"
+              alt=""
+              class="projects-category-image"
+            />
+          </div>
+        </div>
+        <div class="single-projects-content">
+          <h4>{lastProject.data.title}</h4>
+          <h3>{lastProject.data.description}</h3>
+          <p>{lastProject.body}</p>
+          <div class="tech-tools-container">
+            <div class="mini-label-white gray-color">
+              {t("technologies")}
+            </div>
+            <div class="chips-container chips-container-small-width">
+              {
+                lastProject.data.skills.map((skill) => (
+                  <div class="single-chip small-chip">{skill}</div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/puertofolio/experience" class="button w-button"
+        >{t("viewMore")}</a
+      >
+    </div>
+    <div class="projects-section">
+      <h3>{t("nav.personalProjects")}</h3>
+      <a href="/puerttofolio/personal-projects" class="projects-container">
+        <div class="single-projects-category">
+          <div class="projects-category-image-container">
+            <img
+              src="/puertofolio/assets/favorite.svg"
+              loading="lazy"
+              alt=""
+              class="projects-category-image"
+            />
+          </div>
+        </div>
+        <div class="single-projects-content">
+          <h4>{lastPersonalProject.data.title}</h4>
+          <h3>{lastPersonalProject.data.description}</h3>
+          <p>{lastPersonalProject.body}</p>
+          <div class="tech-tools-container">
+            <div class="mini-label-white gray-color">
+              {t("technologies")}
+            </div>
+            <div class="chips-container chips-container-small-width">
+              {
+                lastPersonalProject.data.skills.map((skill) => (
+                  <div class="single-chip small-chip">{skill}</div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/puertofolio/personal-projects" class="button w-button"
+        >{t("viewMore")}</a
+      >
+    </div>
+    <div class="projects-section">
+      <h3>{t("nav.skills")}</h3>
+      <a href="/puerttofolio/skills" class="projects-container">
+        <div class="single-projects-category">
+          <div class="projects-category-image-container">
+            <img
+              src="/puertofolio/assets/hammer.svg"
+              loading="lazy"
+              alt=""
+              class="projects-category-image"
+            />
+          </div>
+        </div>
+        <div class="single-projects-content">
+          <h4>{t("nav.skills")}</h4>
+          <h3>{t("nav.skills")}</h3>
+          <p>{t("nav.skills")}</p>
+          <div class="tech-tools-container">
+            <div class="mini-label-white gray-color">
+              {t("technologies")}
+            </div>
+            <div class="chips-container chips-container-small-width">
+              {
+                lastProject.data.skills.map((skill) => (
+                  <div class="single-chip small-chip">{skill}</div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/puertofolio/skills" class="button w-button">View More</a>
+    </div>
+    <div class="projects-section">
+      <h3>{t("nav.ai")}</h3>
+      <a href="/puerttofolio/ai" class="projects-container">
+        <div class="single-projects-category">
+          <div class="projects-category-image-container">
+            <img
+              src="/puertofolio/assets/ai.svg"
+              loading="lazy"
+              alt=""
+              class="projects-category-image"
+            />
+          </div>
+        </div>
+        <div class="single-projects-content">
+          <h4>{t("nav.ai")}</h4>
+          <h3>{t("nav.ai")}</h3>
+          <p>{t("nav.ai")}</p>
+          <div class="tech-tools-container">
+            <div class="mini-label-white gray-color">
+              {t("technologies")}
+            </div>
+            <div class="chips-container chips-container-small-width">
+              {
+                lastProject.data.skills.map((skill) => (
+                  <div class="single-chip small-chip">{skill}</div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/puertofolio/skills" class="button w-button">{t("viewMore")}</a>
+    </div>
+  </main>
+</Layout>
