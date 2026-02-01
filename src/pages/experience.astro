@@ -1,29 +1,5 @@
 ---
-import Project from "../components/Project.astro";
-import Layout from "../layouts/Layout.astro";
-const projects = [];
+// see pages/[lang]/experience.astro
 ---
 
-<Layout
-  title="Experience"
-  description="Detailed information about Software Development Experience by Jonathan Albarran, skills and technology stack."
-  image="/puertofolio/assets/preview.png"
-  selectedItem="experience"
->
-  <div class="content-container">
-    <h1>Experience</h1>
-    <section class="items-container">
-      <div class="resouce-items">
-        {
-          projects.map((project) => (
-            <Project
-              title={project.title}
-              desc={project.desc}
-              tech={project.tech}
-            />
-          ))
-        }
-      </div>
-    </section>
-  </div>
-</Layout>
+<html></html>

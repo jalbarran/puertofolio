@@ -8,5 +8,12 @@ export default defineConfig({
   base: '/puertofolio',
   vite: {
     plugins: [tailwindcss()]
+  },
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+        prefixDefaultLocale: true
+    }
   }
 });

@@ -1,6 +1,8 @@
 ---
 import Header from "../components/Header.astro";
 import Sidebar from "../components/Sidebar.astro";
+import { getLangFromUrl } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
 import "../styles/global.css";
 interface Props {
   title: string;
@@ -16,7 +18,7 @@ const { title, description, image, selectedItem } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <Header title={title} description={description} image={image} />
   <body>
     <div class="content">
