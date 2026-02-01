@@ -30,7 +30,7 @@ export const ui = {
     'nav.about': 'Acerca de',
     'title': 'Jonathan Albarrán',
     'engineer': 'Software Engineer',
-    'subtitle': 'Integrando ideas en software.',
+    'subtitle': 'Integrando y convirtiendo ideas en software.',
     'description': 'Especializado en sistemas financieros de alta disponibilidad, arquitecturas orientadas a eventos y modernización de plataformas empresariales.',
     'technologies': 'Tecnologías & herramientas',
     'contact': 'Contacto',
