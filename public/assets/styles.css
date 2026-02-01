@@ -176,7 +176,7 @@ ul {
   position: fixed;
   left: 0;
   right: 0;
-  top: 92px;
+  top: 66px;
 }
 
 .w-nav-button {
@@ -207,7 +207,7 @@ ul {
     position: fixed;
     left: 0;
     right: 0;
-    top: 92px;
+    top: 66px;
     background: white;
     transform: translateY(-50%);
     opacity: 0;
@@ -570,9 +570,9 @@ p {
   .sidebar {
     height: auto;
     max-width: 100%;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    padding-right: 28px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
   }
 
   .nav-content {
@@ -625,7 +625,7 @@ p {
   }
 
   .sidebar {
-    padding-left: 24px;
+    padding-left: 10px;
     padding-right: 18px;
   }
 
