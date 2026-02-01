@@ -11,7 +11,7 @@ export const ui = {
   en: {
     'nav.home': 'Home',
     'nav.about': 'About',
-    'title': 'Jonathan Albarran',
+    'title': 'Jonathan Albarrán',
     'engineer': 'Software Engineer',
     'subtitle': 'Integrating ideas into Software.',
     'description': 'Specialized in high availability financial systems, event-oriented architectures and modernization of business platforms.',
@@ -23,12 +23,12 @@ export const ui = {
     'nav.skills': 'Skills',
     'nav.ai': 'Artificial Intelligence',
     'nav.experience': 'Experience',
-    'experience.description': 'Detailed information about Software Development Experience by Jonathan Albarran, skills and technology stack.',
+    'experience.description': 'Detailed information about Software Development Experience by Jonathan Albarrán, skills and technology stack.',
   },
   es: {
     'nav.home': 'Inicio',
     'nav.about': 'Acerca de',
-    'title': 'Jonathan Albarran',
+    'title': 'Jonathan Albarrán',
     'engineer': 'Software Engineer',
     'subtitle': 'Integrando ideas en software.',
     'description': 'Especializado en sistemas financieros de alta disponibilidad, arquitecturas orientadas a eventos y modernización de plataformas empresariales.',
@@ -40,6 +40,6 @@ export const ui = {
     'nav.skills': 'Habilidades',
     'nav.ai': 'Inteligencia Artificial',
     'nav.experience': 'Experiencia',
-    'experience.description': 'Información detallada sobre la experiencia de desarrollo de software de Jonathan Albarran, habilidades y pila de tecnología.',
+    'experience.description': 'Información detallada sobre la experiencia de desarrollo de software de Jonathan Albarrán, habilidades y pila de tecnología.',
   },
 } as const;

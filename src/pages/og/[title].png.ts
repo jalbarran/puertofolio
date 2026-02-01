@@ -5,7 +5,7 @@ import path from "node:path";
 
 export async function getStaticPaths() {
   return [
-    { params: { title: "Jonathan Albarran" } },
+    { params: { title: "Jonathan Albarrán" } },
     { params: { title: "Personal Projects" } },
     { params: { title: "Software Development Experience" } },
     { params: { title: "Artificial Intelligence" } },

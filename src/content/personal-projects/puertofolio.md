@@ -1,6 +1,6 @@
 ---
 title: "Puertofolio"
-description: "Portfolio web de Jonathan Albarran"
+description: "Portfolio web de Jonathan Albarrán"
 startDate: "Enero 2026"
 endDate: "Enero 2026"
 skills: []
