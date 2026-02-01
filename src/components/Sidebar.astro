@@ -43,13 +43,11 @@ const { selectedItem } = Astro.props;
         <div>Home</div>
       </a>
       <a
-        href="/puertofolio/software-development"
+        href="/puertofolio/experience"
         class={`nav-link-container w-inline-block ${
-          selectedItem === "software-development" ? "w--current" : ""
+          selectedItem === "experience" ? "w--current" : ""
         }`}
-        aria-current={selectedItem === "software-development"
-          ? "page"
-          : undefined}
+        aria-current={selectedItem === "experience" ? "page" : undefined}
       >
         <img
           src="/puertofolio/assets/code.svg"
@@ -57,7 +55,7 @@ const { selectedItem } = Astro.props;
           alt=""
           class="nav-link-image"
         />
-        <div>Software development</div>
+        <div>Experience</div>
       </a>
       <a
         href="/puertofolio/personal-projects"
@@ -72,6 +70,34 @@ const { selectedItem } = Astro.props;
           class="nav-link-image"
         />
         <div>Personal projects</div>
+      </a>
+      <a
+        href="/puertofolio/skills"
+        class={`nav-link-container w-inline-block ${
+          selectedItem === "skills" ? "w--current" : ""
+        }`}
+      >
+        <img
+          src="/puertofolio/assets/hammer.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>Skills</div>
+      </a>
+      <a
+        href="/puertofolio/ai"
+        class={`nav-link-container w-inline-block ${
+          selectedItem === "ai" ? "w--current" : ""
+        }`}
+      >
+        <img
+          src="/puertofolio/assets/ai.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>Artificial Intelligence</div>
       </a>
     </nav>
 

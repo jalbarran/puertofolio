@@ -1,0 +1,25 @@
+---
+import Project from "../components/Project.astro";
+import Layout from "../layouts/Layout.astro";
+const skills = [];
+---
+
+<Layout
+  title="Skills"
+  description="Detailed information about Software Development Skills by Jonathan Albarran, skills and technology stack."
+  image="/puertofolio/assets/preview.png"
+  selectedItem="skills"
+>
+  <div class="content-container">
+    <h1>Skills</h1>
+    <section class="items-container">
+      <div class="resouce-items">
+        {
+          skills.map((skill) => (
+            <Project title={skill.title} desc={skill.desc} tech={skill.tech} />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Layout>
