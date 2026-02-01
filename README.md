@@ -1,4 +1,4 @@
-# Jonathan Albarran | Full-Stack Developer Portfolio
+# Jonathan Albarrán | Full-Stack Developer Portfolio
 
 Welcome to my personal portfolio project! This repository contains the source code for my professional portfolio website, designed to showcase my software development journey, personal projects, and technical expertise.
 
