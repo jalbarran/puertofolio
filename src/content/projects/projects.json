@@ -4,8 +4,8 @@
             "slug": "4told-fintech",
             "title": "4told Fintech",
             "description": "Technical Leader",
-            "startDate": "Nov 2022",
-            "endDate": "Mar 2023",
+            "startDate": "2016-11-01",
+            "endDate": null,
             "details": {
                 "es": [
                     "Lideré la organización de ingeniería de una plataforma fintech que maneja transacciones de alto volumen y flujos de trabajo críticos.",
@@ -38,13 +38,12 @@
                 { "name": "Python", "level": 4 , "categories": ["backend"]},
                 { "name": "AngularJS", "level": 3 , "categories": ["frontend"]},
                 { "name": "JavaScript", "level": 5 , "categories": ["frontend", "backend"]},
-                { "name": "MariaDB", "level": 4 , "categories": ["database"]},
+                { "name": "MariaDB", "level": 5 , "categories": ["database"]},
                 { "name": "Oracle", "level": 3 , "categories": ["database"]},
                 { "name": "MongoDB", "level": 4 , "categories": ["database"]},
                 { "name": "Selenium", "level": 3 , "categories": ["testing"]},
                 { "name": "JMeter", "level": 3 , "categories": ["testing"]},
                 { "name": "TDD", "level": 3 , "categories": ["testing"]},
-                { "name": "Confluence", "level": 3 , "categories": ["tools"]},
                 { "name": "Leadership", "level": 4 , "categories": ["soft-skills"]},
                 { "name": "Mentoring", "level": 4 , "categories": ["soft-skills"]},
                 { "name": "Teamwork", "level": 5 , "categories": ["soft-skills"]},
@@ -53,11 +52,11 @@
             ]
         },
         {
-            "slug": "3vam",
-            "title": "3vam",
+            "slug": "3VAM",
+            "title": "3VAM",
             "description": "Development Supervisor",
-            "startDate": "Nov 2022",
-            "endDate": "Mar 2023",
+            "startDate": "2011-10-01",
+            "endDate": "2016-11-01",
             "details": {
                 "es": [
                     "Lideré un equipo de desarrolladores que entregaban aplicaciones empresariales utilizadas por departamentos internos y partes interesadas externas.",
@@ -89,8 +88,8 @@
             "slug": "bsconsultores",
             "title": "BS Consultores",
             "description": "Web Developer",
-            "startDate": "Nov 2022",
-            "endDate": "Mar 2023",
+            "startDate": "2011-04-01",
+            "endDate": "2011-09-01",
             "details": {
                 "es": [
                     "Desarrollé módulos web internos, dashboards y aplicaciones CRUD para clientes del sector público y privado.",

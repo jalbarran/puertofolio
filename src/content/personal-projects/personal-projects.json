@@ -19,8 +19,8 @@
             { "name": "GitHub actions", "level": 3, "categories": ["devops"]},
             { "name": "GitHub pages", "level": 3, "categories": ["devops"]}
         ],
-        "startDate": "Enero 2026",
-        "endDate": "Enero 2026"
+        "startDate": "2026-01-27",
+        "endDate": null
     }
 ]
 }

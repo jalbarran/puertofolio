@@ -25,6 +25,9 @@ export const ui = {
     'nav.ai': 'Artificial Intelligence',
     'nav.experience': 'Experience',
     'experience.description': 'Detailed information about Software Development Experience by Jonathan Albarrán, skills and technology stack.',
+    'nav.certifications': 'Certifications',
+    'certifications.description': 'Detailed information about Software Development Certifications by Jonathan Albarrán, skills and technology stack.',
+    'link': 'Link',
   },
   es: {
     'nav.home': 'Inicio',
@@ -43,5 +46,8 @@ export const ui = {
     'nav.ai': 'Inteligencia Artificial',
     'nav.experience': 'Experiencia',
     'experience.description': 'Información detallada sobre la experiencia de desarrollo de software de Jonathan Albarrán, habilidades y pila de tecnología.',
+    'nav.certifications': 'Certificaciones',
+    'certifications.description': 'Información detallada sobre las certificaciones de desarrollo de software de Jonathan Albarrán, habilidades y pila de tecnología.',
+    'link': 'Enlace',
   },
 } as const;

@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   <div class="content-container">
     <h1>{t("nav.ai")}</h1>
     <section class="items-container">
-      <div class="resouce-items">
+      <div>
         {
           aiProjects.map((project) => (
             <Project
@@ -33,6 +33,8 @@ export async function getStaticPaths() {
               type="ai"
               logo={"ai"}
               skills={project.data.skills}
+              startDate={project.data.startDate}
+              endDate={project.data.endDate}
             />
           ))
         }

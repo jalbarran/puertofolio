@@ -16,8 +16,9 @@ const projectsCollection = defineCollection({
 				level: z.number(),
 				importance: z.number().optional()
 			})),
-			startDate: z.coerce.date(),
+			startDate: z.coerce.date().optional(),
 			endDate: z.coerce.date().optional(),
+			url: z.string().optional(),
 		})
 });
 
@@ -36,8 +37,9 @@ const personalProjectsCollection = defineCollection({
 				level: z.number(),
 				importance: z.number().optional()
 			})),
-			startDate: z.coerce.date(),
+			startDate: z.coerce.date().optional(),
 			endDate: z.coerce.date().optional(),
+			url: z.string().optional(),
 		})
 });
 
@@ -56,9 +58,31 @@ const aiCollection = defineCollection({
 				level: z.number(),
 				importance: z.number().optional()
 			})),
-			startDate: z.coerce.date(),
+			startDate: z.coerce.date().optional(),
 			endDate: z.coerce.date().optional(),
+			url: z.string().optional(),
 		})
 });
 
-export const collections = { projects: projectsCollection, personalProjects: personalProjectsCollection, aiProjects: aiCollection };
+const certificationsCollection = defineCollection({
+  loader: file("src/content/certifications/certifications.json", { parser: (text) => {console.log(JSON.parse(text)); return JSON.parse(text).certifications} }),
+  schema: z.object({
+			title: z.string(),
+			description: z.string(),
+			details: z.object({
+				es: z.array(z.string()),
+				en: z.array(z.string()),
+			}),
+			skills: z.array(z.object({
+				name: z.string(),
+				categories: z.array(z.string()).optional(),
+				level: z.number(),
+				importance: z.number().optional()
+			})),
+			startDate: z.coerce.date().optional(),
+			endDate: z.coerce.date().optional(),
+			url: z.string().optional(),
+		})
+});
+
+export const collections = { projects: projectsCollection, personalProjects: personalProjectsCollection, aiProjects: aiCollection, certifications: certificationsCollection };

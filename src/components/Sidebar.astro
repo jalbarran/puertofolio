@@ -108,6 +108,20 @@ function handleTarget(href: string) {
         />
         <div>{t("nav.ai")}</div>
       </a>
+      <a
+        href={handleTarget("/certifications")}
+        class={`nav-link-container w-inline-block ${
+          selectedItem === "certifications" ? "w--current" : ""
+        }`}
+      >
+        <img
+          src="/puertofolio/assets/certifications.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>{t("nav.certifications")}</div>
+      </a>
     </nav>
     <LanguagePicker />
     <div
