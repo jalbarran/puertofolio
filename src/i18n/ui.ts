@@ -34,7 +34,7 @@ export const ui = {
     'nav.home': 'Inicio',
     'nav.about': 'Acerca de',
     'title': 'Jonathan Albarrán',
-    'engineer': 'Ingeniero de Software',
+    'engineer': 'Software Engineer',
     'subtitle': 'Integrando y convirtiendo ideas en software.',
     'description': 'Especializado en sistemas financieros de alta disponibilidad, arquitecturas orientadas a eventos y modernización de plataformas empresariales. Full-Stack Developer con más de 10 años de experiencia en el diseño, construcción y optimización de sistemas financieros y empresariales escalables. Experto en Java, Spring, Node.js, Kafka y arquitecturas distribuidas. Capacidad demostrada para liderar iniciativas de ingeniería, modernizar sistemas heredados, construir micronegocios de alta disponibilidad y ofrecer soluciones basadas en datos. Fuerte enfoque en confiabilidad, rendimiento y arquitecturas limpias.',
     'technologies': 'Tecnologías & herramientas',
