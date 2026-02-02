@@ -79,8 +79,9 @@ The deployment configuration can be found in [`.github/workflows/deploy.yml`](./
 
 I'm always open to collaborating on interesting projects or discussing new opportunities. Feel free to reach out!
 
-- **Email:** jaal1388@gmail.com
-- **Website:** [puertofolio](https://github.com/jalbarran/puertofolio)
+- **Email:** [jaal1388@gmail.com](mailto:jaal1388@gmail.com)
+- **Linkedin:** [Linkedin](https://www.linkedin.com/in/albarranjonathan/)
+- **Website:** [puertofolio](https://github.com/jalbarran/puertofolio/en)
 
 ---
 

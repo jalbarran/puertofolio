@@ -28,6 +28,7 @@ export const ui = {
     'nav.certifications': 'Certifications',
     'certifications.description': 'Detailed information about Software Development Certifications by Jonathan Albarrán, skills and technology stack.',
     'link': 'Link',
+    'nav.back': 'Back',
   },
   es: {
     'nav.home': 'Inicio',
@@ -49,5 +50,6 @@ export const ui = {
     'nav.certifications': 'Certificaciones',
     'certifications.description': 'Información detallada sobre las certificaciones de desarrollo de software de Jonathan Albarrán, habilidades y pila de tecnología.',
     'link': 'Enlace',
+    'nav.back': 'Volver',
   },
 } as const;
