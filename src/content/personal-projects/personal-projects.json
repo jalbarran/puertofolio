@@ -1,0 +1,17 @@
+{
+    "personalProjects": [
+    {
+        "slug": "puertofolio",
+        "title": "Puertofolio",
+        "description": "Portfolio web de Jonathan Albarrán",
+        "details": {
+            "es": ["Desarrollo de una plataforma web para mostrar mis proyectos y experiencia laboral."],
+            "en": ["Development of a web platform to display my projects and professional experience."]
+        },
+        "skills": [],
+        "startDate": "Enero 2026",
+        "endDate": "Enero 2026",
+        "url": ""
+    }
+]
+}

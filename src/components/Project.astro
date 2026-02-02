@@ -1,16 +1,40 @@
 ---
-const { title, desc, tech } = Astro.props;
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const { title, desc, details, lang, type, skills, logo } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<div class="single-item">
-  <h3>{title}</h3>
-  <div class="project-desc project-desc-list w-richtext">
-    <ul role="list">
-      {desc.map(item => <li>{item}</li>)}
-    </ul>
+<a
+  href={`/puertofolio/${lang}/${type}`}
+  class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
+>
+  <div class="single-projects-category">
+    <div class="projects-category-image-container">
+      <img
+        src={`/puertofolio/assets/${logo}.svg`}
+        loading="lazy"
+        alt=""
+        class="projects-category-image"
+      />
+    </div>
   </div>
-  <div class="mini-label-white">Technologies &amp; tools</div>
-  <div class="chips-container">
-    {tech.map(techItem => <div class="single-chip">{techItem}</div>)}
+  <div class="single-projects-content">
+    <h4>{title}</h4>
+    <h3 class="text-justify">{desc}</h3>
+    {details[lang].map((detail) => <p class="text-justify">{detail}</p>)}
+    <div class="tech-tools-container">
+      <div class="mini-label-white gray-color">
+        {t("technologies")}
+      </div>
+      <div class="chips-container chips-container-small-width">
+        {
+          skills.map((skill: any) => (
+            <div class="single-chip small-chip">
+              {skill.name}:{skill.level}
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
-</div>
+</a>

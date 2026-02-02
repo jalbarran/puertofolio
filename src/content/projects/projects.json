@@ -1,0 +1,33 @@
+{
+    "projects": [
+        {
+            "slug": "4told-fintech",
+            "title": "4told Fintech",
+            "description": "Implementacion de Core Fintech (4told)",
+            "startDate": "Nov 2022",
+            "endDate": "Mar 2023",
+            "details": {
+                "es": [
+                "Implementacion de una arquitectura de microservicios utilizando Java/Spring y Apache Camel. Introduccion de Kafka para desacoplar procesos críticos.",
+                "Migracion y desarrollo de microservicios especializados en Node.js/Python y automatizacion con Docker y Jenkins.",
+                "Implementacion de arquitectura de microservicios especializados que dan solucion al reto de escalar una plataforma de alto volumen con deuda tecnica acumulada. Reduccion de tiempos de despliegue de horas a minutos y aumento drastico en la fiabilidad del sistema."
+                ],
+                "en": [
+                "Implementacion de una arquitectura de microservicios utilizando Java/Spring y Apache Camel. Introduccion de Kafka para desacoplar procesos críticos.",
+                "Migracion y desarrollo de microservicios especializados en Node.js/Python y automatizacion con Docker y Jenkins.",
+                "Implementacion de arquitectura de microservicios especializados que dan solucion al reto de escalar una plataforma de alto volumen con deuda tecnica acumulada. Reduccion de tiempos de despliegue de horas a minutos y aumento drastico en la fiabilidad del sistema."
+                ]
+            },
+            "skills": [
+                { "name": "Java", "level": 5 },
+                { "name": "Spring", "level": 5 },
+                { "name": "Apache Camel", "level": 5 },
+                { "name": "Kafka", "level": 5 },
+                { "name": "Docker", "level": 5 },
+                { "name": "Jenkins", "level": 5 },
+                { "name": "Node.js", "level": 4 },
+                { "name": "Python", "level": 4 }
+            ]
+        }
+    ]
+}

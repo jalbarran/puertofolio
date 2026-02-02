@@ -1,0 +1,29 @@
+{
+    "projects": [
+        {
+            "slug": "ai-lab",
+            "title": "AI Lab",
+            "description": "Artificial Intelligence lab implementing LLMs with RAGs",
+            "details": {
+                "es": ["Inteligencia Artificial implementando el uso de LLMs con RAGs"],
+                "en": ["Artificial Intelligence lab implementing LLMs with RAGs"]
+            },
+            "startDate": "2026-01-01",
+            "endDate": "2026-01-01",
+            "skills": [
+                { "name": "Python", "level": 3 },
+                { "name": "AI", "level": 2 },
+                { "name": "LLMs", "level": 2 },
+                { "name": "RAGs", "level": 2 },
+                { "name": "Chatbots",   "level": 3 },
+                { "name": "NLP", "level": 2 },
+                { "name": "Langchain", "level": 2 },
+                { "name": "ChromaDB", "level": 1 },
+                { "name": "VectorDB", "level": 1 },
+                { "name": "OpenAI", "level": 2 },
+                { "name": "ChatGPT", "level": 2 },
+                { "name": "HuggingFace", "level": 2 }
+            ]
+        }
+    ]
+}

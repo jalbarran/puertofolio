@@ -1,28 +1,38 @@
 ---
 import Project from "../../components/Project.astro";
 import Layout from "../../layouts/Layout.astro";
-const projects = [];
+import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+const personalProjects = (await getCollection("personalProjects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 export async function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
 }
 ---
 
 <Layout
-  title="Personal Projects"
+  title={t("nav.personalProjects")}
   description="Detailed information about Personal Projects by Jonathan Albarrán, experience, skills and technology stack."
   image="/puertofolio/assets/preview.png"
   selectedItem="personal-projects"
 >
   <div class="content-container">
-    <h1>Personal Projects</h1>
+    <h1>{t("nav.personalProjects")}</h1>
     <section class="items-container">
       <div class="resouce-items">
         {
-          projects.map((project) => (
+          personalProjects.map((project) => (
             <Project
-              title={project.title}
-              desc={project.desc}
-              tech={project.tech}
+              title={project.data.title}
+              desc={project.data.description}
+              details={project.data.details}
+              lang={lang}
+              type="personal-projects"
+              logo={"favorite"}
+              skills={project.data.skills}
             />
           ))
         }
