@@ -1,7 +1,13 @@
 ---
 import Project from "../../components/Project.astro";
 import Layout from "../../layouts/Layout.astro";
-const skills = [];
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getCollection } from "astro:content";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const aiProjects = (await getCollection("aiProjects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
 export async function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
 }
@@ -14,12 +20,22 @@ export async function getStaticPaths() {
   selectedItem="ai"
 >
   <div class="content-container">
-    <h1>Artificial Intelligence</h1>
+    <h1>{t("nav.ai")}</h1>
     <section class="items-container">
-      <div class="resouce-items">
+      <div>
         {
-          skills.map((skill) => (
-            <Project title={skill.title} desc={skill.desc} tech={skill.tech} />
+          aiProjects.map((project) => (
+            <Project
+              title={project.data.title}
+              desc={project.data.description}
+              details={project.data.details}
+              lang={lang}
+              type="ai"
+              logo={"ai"}
+              skills={project.data.skills}
+              startDate={project.data.startDate}
+              endDate={project.data.endDate}
+            />
           ))
         }
       </div>

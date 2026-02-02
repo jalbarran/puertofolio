@@ -1,10 +1,55 @@
 ---
-import Project from "../../components/Project.astro";
 import Layout from "../../layouts/Layout.astro";
-const skills = [];
+import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+const personalProjects = (await getCollection("personalProjects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 export async function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
 }
+const aiProjects = (await getCollection("aiProjects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+const allProjects = [...projects, ...personalProjects, ...aiProjects];
+const skills = allProjects.reduce((acc, project) => {
+  project.data.skills.forEach((skill) => {
+    if (!acc.some((s) => s.name === skill.name)) {
+      acc.push({
+        name: skill.name,
+        level: skill.level,
+        projects: [project.data.title],
+        categories: skill.categories,
+      });
+    } else {
+      const index = acc.findIndex((s) => s.name === skill.name);
+      acc[index].level = Math.max(acc[index].level, skill.level);
+      acc[index].projects.push(project.data.title);
+    }
+  });
+  return acc;
+}, []);
+const categories = {};
+skills.forEach((skill) => {
+  skill.categories?.forEach((category) => {
+    if (!categories[category]) {
+      categories[category] = [];
+    }
+    if (categories[category].some((s) => s.name === skill.name)) {
+      return;
+    }
+    categories[category].push(skill);
+  });
+});
+
+Object.keys(categories).forEach((category) => {
+  categories[category].sort((a, b) => b.level - a.level);
+});
 ---
 
 <Layout
@@ -14,12 +59,34 @@ export async function getStaticPaths() {
   selectedItem="skills"
 >
   <div class="content-container">
-    <h1>Skills</h1>
+    <h1>{t("nav.skills")}</h1>
     <section class="items-container">
-      <div class="resouce-items">
+      <div>
         {
-          skills.map((skill) => (
-            <Project title={skill.title} desc={skill.desc} tech={skill.tech} />
+          Object.keys(categories).map((category) => (
+            <div class="">
+              <div class="text-white pt-5 uppercase text-center">
+                {category}
+              </div>
+              {categories[category].map((skill) => (
+                <div class="grid grid-cols-2 text-white pt-5">
+                  {skill.name}
+                  <div class="h-5 w-full">
+                    <div class="w-full bg-neutral-500/20 rounded-full h-5 vertical-align-middle">
+                      <div
+                        class="bg-slate-300 h-5 rounded-full text-slate-900 font-bold pl-2 text-xs vertical-align-middle text-left pt-1"
+                        style={`width: ${skill.level * 20}%`}
+                      >
+                        {skill.level}/5
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-gray-500" title={t("projects")}>
+                    {skill.projects?.join(", ")}
+                  </div>
+                </div>
+              ))}
+            </div>
           ))
         }
       </div>

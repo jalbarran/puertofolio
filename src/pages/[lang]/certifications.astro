@@ -3,8 +3,8 @@ import Project from "../../components/Project.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-const personalProjects = (await getCollection("personalProjects")).sort(
-  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+const certifications = (await getCollection("certifications")).sort(
+  (a, b) => b.data.endDate.valueOf() - a.data.endDate.valueOf(),
 );
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,27 +14,28 @@ export async function getStaticPaths() {
 ---
 
 <Layout
-  title={t("nav.personalProjects")}
-  description="Detailed information about Personal Projects by Jonathan Albarrán, experience, skills and technology stack."
+  title={t("nav.certifications")}
+  description="Detailed information about Certifications by Jonathan Albarrán, experience, skills and technology stack."
   image="/puertofolio/assets/preview.png"
-  selectedItem="personal-projects"
+  selectedItem="certifications"
 >
   <div class="content-container">
-    <h1>{t("nav.personalProjects")}</h1>
+    <h1>{t("nav.certifications")}</h1>
     <section class="items-container">
-      <div class="w-min-100">
+      <div>
         {
-          personalProjects.map((project) => (
+          certifications.map((project) => (
             <Project
               title={project.data.title}
               desc={project.data.description}
               details={project.data.details}
               lang={lang}
-              type="personal-projects"
-              logo={"favorite"}
+              type="certifications"
+              logo={"certifications"}
               skills={project.data.skills}
-              startDate={project.data.startDate}
-              endDate={project.data.endDate}
+              url={project.data.url}
+              startDate={project.data.startDate ?? ""}
+              endDate={project.data.endDate ?? ""}
             />
           ))
         }

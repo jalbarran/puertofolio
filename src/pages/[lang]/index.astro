@@ -1,15 +1,57 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-const lastProject = (await getCollection("projects")).sort(
+const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
-)[0];
-const lastPersonalProject = (await getCollection("personalProjects")).sort(
+);
+const personalProjects = (await getCollection("personalProjects")).sort(
   (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
-)[0];
+);
+const lastProject = projects[0];
+const lastPersonalProject = personalProjects[0];
+const aiProjects = (await getCollection("aiProjects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+const lastAiProject = aiProjects[0];
+const allProjects = [...projects, ...personalProjects, ...aiProjects];
+const skills = allProjects.reduce((acc, project) => {
+  project.data.skills.forEach((skill) => {
+    if (!acc.some((s) => s.name === skill.name)) {
+      acc.push({
+        name: skill.name,
+        level: skill.level,
+        projects: [project.data.title],
+        categories: skill.categories,
+      });
+    } else {
+      const index = acc.findIndex((s) => s.name === skill.name);
+      acc[index].level = Math.max(acc[index].level, skill.level);
+      acc[index].projects.push(project.data.title);
+    }
+  });
+  return acc;
+}, []);
+
+const categories = {};
+skills.forEach((skill) => {
+  skill.categories?.forEach((category) => {
+    if (!categories[category]) {
+      categories[category] = [];
+    }
+    if (categories[category].some((s) => s.name === skill.name)) {
+      return;
+    }
+    categories[category].push(skill);
+  });
+});
+
+Object.keys(categories).forEach((category) => {
+  categories[category].sort((a, b) => b.level - a.level);
+});
+
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Project from "../../components/Project.astro";
 const lang = getLangFromUrl(Astro.url);
-console.log("lang", lang);
 const t = useTranslations(lang);
 
 export async function getStaticPaths() {
@@ -27,7 +69,7 @@ export async function getStaticPaths() {
     <div class="fold-content">
       <h1>{t("title")}</h1>
       <h2>{t("subtitle")}</h2>
-      <p>
+      <p class="text-justify">
         {t("description")}
       </p>
     </div>
@@ -41,38 +83,15 @@ export async function getStaticPaths() {
           <h3 class="flex-shrink mx-4 text-gray-400">{t("currentProjects")}</h3>
           <div class="flex-grow border-t border-gray-400"></div>
         </div>
-        <a
-          href={`/puertofolio/${lang}/experience`}
-          class="projects-container mx-auto rounded-xl shadow-lg border border-gray-500 bg-neutral-800 p-6"
-        >
-          <div class="single-projects-category">
-            <div class="projects-category-image-container">
-              <img
-                src="/puertofolio/assets/code.svg"
-                loading="lazy"
-                alt=""
-                class="projects-category-image"
-              />
-            </div>
-          </div>
-          <div class="single-projects-content">
-            <h4>{lastProject.data.title}</h4>
-            <h3>{lastProject.data.description}</h3>
-            <p>{lastProject.body}</p>
-            <div class="tech-tools-container">
-              <div class="mini-label-white gray-color">
-                {t("technologies")}
-              </div>
-              <div class="chips-container chips-container-small-width">
-                {
-                  lastProject.data.skills.map((skill) => (
-                    <div class="single-chip small-chip">{skill}</div>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </a>
+        <Project
+          title={lastProject.data.title}
+          desc={lastProject.data.description}
+          details={lastProject.data.details}
+          lang={lang}
+          type="experience"
+          logo={"experience"}
+          skills={lastProject.data.skills}
+        />
         <a href={`/puertofolio/${lang}/experience`} class="button w-button"
           >{t("viewMore")}</a
         >
@@ -85,38 +104,15 @@ export async function getStaticPaths() {
           </h3>
           <div class="flex-grow border-t border-gray-400"></div>
         </div>
-        <a
-          href={`/puertofolio/${lang}/personal-projects`}
-          class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
-        >
-          <div class="single-projects-category">
-            <div class="projects-category-image-container">
-              <img
-                src="/puertofolio/assets/favorite.svg"
-                loading="lazy"
-                alt=""
-                class="projects-category-image"
-              />
-            </div>
-          </div>
-          <div class="single-projects-content">
-            <h4>{lastPersonalProject.data.title}</h4>
-            <h3>{lastPersonalProject.data.description}</h3>
-            <p>{lastPersonalProject.body}</p>
-            <div class="tech-tools-container">
-              <div class="mini-label-white gray-color">
-                {t("technologies")}
-              </div>
-              <div class="chips-container chips-container-small-width">
-                {
-                  lastPersonalProject.data.skills.map((skill) => (
-                    <div class="single-chip small-chip">{skill}</div>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </a>
+        <Project
+          title={lastPersonalProject.data.title}
+          desc={lastPersonalProject.data.description}
+          details={lastPersonalProject.data.details}
+          lang={lang}
+          type="personal-projects"
+          logo={"favorite"}
+          skills={lastPersonalProject.data.skills}
+        />
         <a
           href={`/puertofolio/${lang}/personal-projects`}
           class="button w-button">{t("viewMore")}</a
@@ -128,38 +124,39 @@ export async function getStaticPaths() {
           <h3 class="flex-shrink mx-4 text-gray-400">{t("nav.skills")}</h3>
           <div class="flex-grow border-t border-gray-400"></div>
         </div>
-        <a
-          href={`/puertofolio/${lang}/skills`}
-          class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
+        <div
+          class="projects-container mx-auto w-full rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
         >
-          <div class="single-projects-category">
-            <div class="projects-category-image-container">
-              <img
-                src="/puertofolio/assets/hammer.svg"
-                loading="lazy"
-                alt=""
-                class="projects-category-image"
-              />
-            </div>
+          <div class="flex flex-col w-full">
+            {
+              Object.keys(categories).map((category) => (
+                <div class="">
+                  <div class="text-white pt-5 uppercase text-center">
+                    {category}
+                  </div>
+                  {categories[category].map((skill) => (
+                    <div class="grid grid-cols-2 text-white pt-5">
+                      {skill.name}
+                      <div class="h-5 w-full">
+                        <div class="w-full bg-neutral-500/20 rounded-full h-5 vertical-align-middle">
+                          <div
+                            class="bg-slate-300 h-5 rounded-full text-slate-900 font-bold pl-2 text-xs vertical-align-middle text-left pt-1"
+                            style={`width: ${skill.level * 20}%`}
+                          >
+                            {skill.level}/5
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-gray-500" title={t("projects")}>
+                        {skill.projects?.join(", ")}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))
+            }
           </div>
-          <div class="single-projects-content">
-            <h4>{t("nav.skills")}</h4>
-            <h3>{t("nav.skills")}</h3>
-            <p>{t("nav.skills")}</p>
-            <div class="tech-tools-container">
-              <div class="mini-label-white gray-color">
-                {t("technologies")}
-              </div>
-              <div class="chips-container chips-container-small-width">
-                {
-                  lastProject.data.skills.map((skill) => (
-                    <div class="single-chip small-chip">{skill}</div>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </a>
+        </div>
         <a href={`/puertofolio/${lang}/skills`} class="button w-button"
           >{t("viewMore")}</a
         >
@@ -170,38 +167,15 @@ export async function getStaticPaths() {
           <h3 class="flex-shrink mx-4 text-gray-400">{t("nav.ai")}</h3>
           <div class="flex-grow border-t border-gray-400"></div>
         </div>
-        <a
-          href={`/puertofolio/${lang}/ai`}
-          class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
-        >
-          <div class="single-projects-category">
-            <div class="projects-category-image-container">
-              <img
-                src="/puertofolio/assets/ai.svg"
-                loading="lazy"
-                alt=""
-                class="projects-category-image"
-              />
-            </div>
-          </div>
-          <div class="single-projects-content">
-            <h4>{t("nav.ai")}</h4>
-            <h3>{t("nav.ai")}</h3>
-            <p>{t("nav.ai")}</p>
-            <div class="tech-tools-container">
-              <div class="mini-label-white gray-color">
-                {t("technologies")}
-              </div>
-              <div class="chips-container chips-container-small-width">
-                {
-                  lastProject.data.skills.map((skill) => (
-                    <div class="single-chip small-chip">{skill}</div>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </a>
+        <Project
+          title={lastAiProject.data.title}
+          desc={lastAiProject.data.description}
+          details={lastAiProject.data.details}
+          lang={lang}
+          type="ai"
+          logo={"ai"}
+          skills={lastAiProject.data.skills}
+        />
         <a href={`/puertofolio/${lang}/ai`} class="button w-button"
           >{t("viewMore")}</a
         >

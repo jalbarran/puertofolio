@@ -1,16 +1,90 @@
 ---
-const { title, desc, tech } = Astro.props;
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const {
+  title,
+  desc,
+  details,
+  lang,
+  type,
+  skills,
+  logo,
+  url,
+  startDate,
+  endDate,
+} = Astro.props;
+const t = useTranslations(lang);
+const dateOptions: object = {
+  year: "numeric",
+  month: "short",
+};
+
+const formattedStartDate =
+  startDate && startDate.getTime() > 0
+    ? new Date(startDate).toLocaleDateString(lang, dateOptions)
+    : "";
+const formattedEndDate =
+  endDate && endDate.getTime() > 0
+    ? new Date(endDate).toLocaleDateString(lang, dateOptions)
+    : "";
 ---
 
-<div class="single-item">
-  <h3>{title}</h3>
-  <div class="project-desc project-desc-list w-richtext">
-    <ul role="list">
-      {desc.map(item => <li>{item}</li>)}
-    </ul>
+<div
+  class="projects-container mx-auto w-min-100 my-5 rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
+>
+  <div class="single-projects-category">
+    <div class="projects-category-image-container">
+      <img
+        src={`/puertofolio/assets/${logo}.svg`}
+        loading="lazy"
+        alt=""
+        class="projects-category-image"
+      />
+    </div>
   </div>
-  <div class="mini-label-white">Technologies &amp; tools</div>
-  <div class="chips-container">
-    {tech.map(techItem => <div class="single-chip">{techItem}</div>)}
+  <div class="single-projects-content">
+    <h4>{title}</h4>
+    <h3 class="text-justify">{desc}</h3>
+    {details[lang].map((detail) => <p class="text-justify">{detail}</p>)}
+    <div class="tech-tools-container">
+      <div class="mini-label-white gray-color">
+        {t("technologies")}
+      </div>
+      <div class="chips-container chips-container-small-width">
+        {
+          skills.map((skill: any) => (
+            <div class="single-chip small-chip">
+              {skill.name}:{skill.level}
+            </div>
+          ))
+        }
+      </div>
+      {
+        url && (
+          <a
+            href={url}
+            class="button w-content mt-5"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("link")}
+          </a>
+        )
+      }
+      <div class="flex flex-row text-xs text-gray-500">
+        {formattedStartDate && <span>{formattedStartDate}</span>}
+        {
+          formattedEndDate &&
+            formattedStartDate &&
+            formattedEndDate !== formattedStartDate && (
+              <span>&nbsp;-&nbsp;</span>
+            )
+        }
+        {
+          formattedEndDate && formattedEndDate !== formattedStartDate && (
+            <span>{formattedEndDate}</span>
+          )
+        }
+      </div>
+    </div>
   </div>
 </div>

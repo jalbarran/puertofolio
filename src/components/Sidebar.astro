@@ -59,7 +59,7 @@ function handleTarget(href: string) {
         aria-current={selectedItem === "experience" ? "page" : undefined}
       >
         <img
-          src="/puertofolio/assets/code.svg"
+          src="/puertofolio/assets/experience.svg"
           loading="eager"
           alt=""
           class="nav-link-image"
@@ -107,6 +107,20 @@ function handleTarget(href: string) {
           class="nav-link-image"
         />
         <div>{t("nav.ai")}</div>
+      </a>
+      <a
+        href={handleTarget("/certifications")}
+        class={`nav-link-container w-inline-block ${
+          selectedItem === "certifications" ? "w--current" : ""
+        }`}
+      >
+        <img
+          src="/puertofolio/assets/certifications.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>{t("nav.certifications")}</div>
       </a>
     </nav>
     <LanguagePicker />

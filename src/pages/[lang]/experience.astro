@@ -1,7 +1,10 @@
 ---
 import Project from "../../components/Project.astro";
 import Layout from "../../layouts/Layout.astro";
-const projects = [];
+import { getCollection } from "astro:content";
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -19,13 +22,19 @@ export async function getStaticPaths() {
   <div class="content-container">
     <h1>{t("nav.experience")}</h1>
     <section class="items-container">
-      <div class="resouce-items">
+      <div>
         {
           projects.map((project) => (
             <Project
-              title={project.title}
-              desc={project.desc}
-              tech={project.tech}
+              title={project.data.title}
+              desc={project.data.description}
+              details={project.data.details}
+              lang={lang}
+              type="projects"
+              logo={"experience"}
+              skills={project.data.skills}
+              startDate={project.data.startDate}
+              endDate={project.data.endDate}
             />
           ))
         }

@@ -1,0 +1,174 @@
+{
+    "certifications": [
+        {
+            "slug": "systems-engineer",
+            "title": "Systems Engineer",
+            "description": "",
+            "details": {
+                "es": [
+                    "Universidad Nacional Experimental Politécnica de la Fuerza Armada Nacional Bolivariana (UNEFA)",
+                    "Promedio de notas: 17.99/20"
+                ],
+                "en": [
+                    "Universidad Nacional Experimental Politécnica de la Fuerza Armada Nacional Bolivariana (UNEFA)",
+                    "17.99/20 grade point average"
+                ]
+            },
+            "skills": [
+                {
+                    "name": "Systems Engineering",
+                    "level": 5,
+                    "importance": 10
+                }
+            ],
+            "startDate": "2005-01-01",
+            "endDate": "2010-01-01"
+        },
+        {
+            "slug": "oracle-certified-professional",
+            "title": "Java SE 6 Programmer",
+            "description": "Oracle Certified Professional",
+            "details": {
+                "es": [
+                    "puntuación de 88%"
+                ],
+                "en": [
+                    "88% score"
+                ]
+            },
+            "skills": [
+                {
+                    "name": "Java",
+                    "level": 5,
+                    "importance": 10
+                }
+            ],
+            "startDate": null,
+            "endDate": "2010-12-01"
+        },
+        {
+            "slug": "ibm-advanced-career-education",
+            "title": "E-Business Application Developer",
+            "description": "IBM Advanced Career Education",
+            "details": {
+                "es": [
+                    "E-Business Application Developer",
+                    "FUNDACITE Zulia e IBM Venezuela"
+                ],
+                "en": [
+                    "E-Business Application Developer",
+                    "FUNDACITE Zulia and IBM Venezuela"
+                ]
+            },
+            "skills": [
+                {
+                    "name": "Java",
+                    "level": 5,
+                    "importance": 10
+                }, {
+                    "name": "Systems Design",
+                    "level": 5,
+                    "importance": 10
+                }
+            ],
+            "startDate": "2010-09-01",
+            "endDate": "2011-09-01"
+        }, {
+            "slug": "ef-set-english-certificate",
+            "title": "English Proficiency",
+            "description": "EF SET English Certificate",
+            "details": {
+                "es": [
+                    "72/100 (C2 Proficient)"
+                ],
+                "en": [
+                    "72/100 (C2 Proficient)"
+                ]
+            },
+            "url": "https://cert.efset.org/en/K247bE",
+            "skills": [
+                {
+                    "name": "English",
+                    "level": 5,
+                    "importance": 10
+                }
+            ],
+            "startDate": null,
+            "endDate": "2025-03-01"
+        },
+        {
+            "slug": "openenglish",
+            "title": "OpenEnglish",
+            "description": "",
+            "details": {
+                "es": [
+                    "OpenEnglish"
+                ],
+                "en": [
+                    "OpenEnglish"
+                ]
+            },
+            "skills": [
+                {
+                    "name": "English",
+                    "level": 5,
+                    "importance": 10
+                }
+            ],
+            "startDate": "2013-09-01",
+            "endDate": "2014-10-01"
+        },
+        {
+            "slug": "ai-engineer",
+            "title": "The AI Engineer Course 2026: Complete AI Engineer Bootcamp",
+            "description": "",
+            "details": {
+                "es": [
+                    "The AI Engineer Course 2026: Complete AI Engineer Bootcamp"
+                ],
+                "en": [
+                    "The AI Engineer Course 2026: Complete AI Engineer Bootcamp"
+                ]
+            },
+            "url": "https://www.udemy.com/certificate/UC-b5eb9da6-8a57-4e41-ac8d-537a69907b9f/",
+            "skills": [
+                { "name": "Python", "level": 3, "categories": ["ai"]},
+                { "name": "AI", "level": 4, "categories": ["ai"]},
+                { "name": "LLMs", "level": 4, "categories": ["ai"]},
+                { "name": "RAGs", "level": 3, "categories": ["ai"]},
+                { "name": "Chatbots",   "level": 4, "categories": ["ai"]},
+                { "name": "NLP", "level": 3, "categories": ["ai"]},
+                { "name": "Langchain", "level": 3, "categories": ["ai"]},
+                { "name": "ChromaDB", "level": 3, "categories": ["ai"]},
+                { "name": "VectorDB", "level": 3, "categories": ["ai"]},
+                { "name": "OpenAI", "level": 3, "categories": ["ai"]},
+                { "name": "ChatGPT", "level": 3, "categories": ["ai"]},
+                { "name": "HuggingFace", "level": 2, "categories": ["ai"]}
+            ],
+            "startDate": "2026-01-01",
+            "endDate": "2026-12-01"
+        },
+        {
+            "slug": "ai-for-developers",
+            "title": "AI For Developers With GitHub Copilot, Cursor AI & ChatGPT",
+            "description": "",
+            "details": {
+                "es": [
+                    "AI For Developers With GitHub Copilot, Cursor AI & ChatGPT"
+                ],
+                "en": [
+                    "AI For Developers With GitHub Copilot, Cursor AI & ChatGPT"
+                ]
+            },
+            "url": "https://www.udemy.com/certificate/UC-e1c78117-b177-4ccc-bc63-ccab937dcc2a/",
+            "skills": [
+                { "name": "AI", "level": 4, "categories": ["ai"]},
+                { "name": "Cursor", "level": 4, "categories": ["ai"]},
+                { "name": "Github Copilot", "level": 4, "categories": ["ai"]},
+                { "name": "ChatGPT", "level": 3, "categories": ["ai"]}                
+            ],
+            "startDate": "2025-12-01",
+            "endDate": "2025-12-01"
+        }
+    ]
+}
