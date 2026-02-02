@@ -73,9 +73,49 @@ export async function getStaticPaths() {
         {t("description")}
       </p>
     </div>
-    <a href="mailto:jaal1388@gmail.com" class="button w-button"
-      >{t("contact")}</a
-    >
+    <div class="flex items-center gap-4 p-4 bg-gray-100 rounded-lg">
+      <span class="text-gray-600 font-semibold">{t("contact")}:</span>
+      <a
+        href="mailto:jaal1388@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-blue-700 hover:text-blue-900 transition hover:scale-120"
+      >
+        <img src="/puertofolio/assets/contact-mail.svg" alt="Mail" />
+      </a>
+      <a
+        href="https://github.com/jalbarran"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-blue-700 hover:text-blue-900 transition hover:scale-120"
+      >
+        <img src="/puertofolio/assets/contact-github.svg" alt="GitHub" />
+      </a>
+      <a
+        href="https://x.com/albjonathan"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sky-500 hover:text-sky-700 transition hover:scale-120"
+      >
+        <img src="/puertofolio/assets/contact-x.svg" alt="X" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/albarranjonathan/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sky-500 hover:text-sky-700 transition hover:scale-120"
+      >
+        <img src="/puertofolio/assets/contact-linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a
+        href="https://discord.com/users/707034037935407246"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sky-500 hover:text-sky-700 transition hover:scale-120"
+      >
+        <img src="/puertofolio/assets/contact-discord.svg" alt="Discord" />
+      </a>
+    </div>
     <div>
       <div class="projects-section">
         <div class="flex pt-10 items-center">

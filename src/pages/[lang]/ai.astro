@@ -19,6 +19,7 @@ export async function getStaticPaths() {
   image="/puertofolio/assets/preview.png"
   selectedItem="ai"
 >
+  <a href={`/puertofolio/${lang}`} class="button w-button">{t("nav.back")}</a>
   <div class="content-container">
     <h1>{t("nav.ai")}</h1>
     <section class="items-container">
