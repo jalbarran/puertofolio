@@ -11,18 +11,18 @@
             "startDate": "2026-01-01",
             "endDate": "2026-01-01",
             "skills": [
-                { "name": "Python", "level": 3 },
-                { "name": "AI", "level": 2 },
-                { "name": "LLMs", "level": 2 },
-                { "name": "RAGs", "level": 2 },
-                { "name": "Chatbots",   "level": 3 },
-                { "name": "NLP", "level": 2 },
-                { "name": "Langchain", "level": 2 },
-                { "name": "ChromaDB", "level": 1 },
-                { "name": "VectorDB", "level": 1 },
-                { "name": "OpenAI", "level": 2 },
-                { "name": "ChatGPT", "level": 2 },
-                { "name": "HuggingFace", "level": 2 }
+                { "name": "Python", "level": 3, "categories": ["ai"]},
+                { "name": "AI", "level": 4, "categories": ["ai"]},
+                { "name": "LLMs", "level": 4, "categories": ["ai"]},
+                { "name": "RAGs", "level": 3, "categories": ["ai"]},
+                { "name": "Chatbots",   "level": 4, "categories": ["ai"]},
+                { "name": "NLP", "level": 3, "categories": ["ai"]},
+                { "name": "Langchain", "level": 3, "categories": ["ai"]},
+                { "name": "ChromaDB", "level": 3, "categories": ["ai"]},
+                { "name": "VectorDB", "level": 3, "categories": ["ai"]},
+                { "name": "OpenAI", "level": 3, "categories": ["ai"]},
+                { "name": "ChatGPT", "level": 3, "categories": ["ai"]},
+                { "name": "HuggingFace", "level": 2, "categories": ["ai"]}
             ]
         }
     ]

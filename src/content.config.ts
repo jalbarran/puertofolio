@@ -12,7 +12,9 @@ const projectsCollection = defineCollection({
 			}),
 			skills: z.array(z.object({
 				name: z.string(),
+				categories: z.array(z.string()).optional(),
 				level: z.number(),
+				importance: z.number().optional()
 			})),
 			startDate: z.coerce.date(),
 			endDate: z.coerce.date().optional(),
@@ -30,7 +32,9 @@ const personalProjectsCollection = defineCollection({
 			}),
 			skills: z.array(z.object({
 				name: z.string(),
+				categories: z.array(z.string()).optional(),
 				level: z.number(),
+				importance: z.number().optional()
 			})),
 			startDate: z.coerce.date(),
 			endDate: z.coerce.date().optional(),
@@ -48,7 +52,9 @@ const aiCollection = defineCollection({
 			}),
 			skills: z.array(z.object({
 				name: z.string(),
+				categories: z.array(z.string()).optional(),
 				level: z.number(),
+				importance: z.number().optional()
 			})),
 			startDate: z.coerce.date(),
 			endDate: z.coerce.date().optional(),

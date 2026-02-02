@@ -12,7 +12,6 @@ const lastPersonalProject = personalProjects[0];
 const aiProjects = (await getCollection("aiProjects")).sort(
   (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
 );
-console.log(aiProjects);
 const lastAiProject = aiProjects[0];
 const allProjects = [...projects, ...personalProjects, ...aiProjects];
 const skills = allProjects.reduce((acc, project) => {
@@ -22,6 +21,7 @@ const skills = allProjects.reduce((acc, project) => {
         name: skill.name,
         level: skill.level,
         projects: [project.data.title],
+        categories: skill.categories,
       });
     } else {
       const index = acc.findIndex((s) => s.name === skill.name);
@@ -31,6 +31,24 @@ const skills = allProjects.reduce((acc, project) => {
   });
   return acc;
 }, []);
+
+const categories = {};
+skills.forEach((skill) => {
+  skill.categories?.forEach((category) => {
+    if (!categories[category]) {
+      categories[category] = [];
+    }
+    if (categories[category].some((s) => s.name === skill.name)) {
+      return;
+    }
+    categories[category].push(skill);
+  });
+});
+
+Object.keys(categories).forEach((category) => {
+  categories[category].sort((a, b) => b.level - a.level);
+});
+
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import Project from "../../components/Project.astro";
 const lang = getLangFromUrl(Astro.url);
@@ -51,7 +69,7 @@ export async function getStaticPaths() {
     <div class="fold-content">
       <h1>{t("title")}</h1>
       <h2>{t("subtitle")}</h2>
-      <p>
+      <p class="text-justify">
         {t("description")}
       </p>
     </div>
@@ -106,33 +124,39 @@ export async function getStaticPaths() {
           <h3 class="flex-shrink mx-4 text-gray-400">{t("nav.skills")}</h3>
           <div class="flex-grow border-t border-gray-400"></div>
         </div>
-        <a
-          href={`/puertofolio/${lang}/skills`}
+        <div
           class="projects-container mx-auto w-full rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
         >
           <div class="flex flex-col w-full">
             {
-              skills.map((skill) => (
-                <div class="grid grid-cols-2 text-white pt-5">
-                  {skill.name}
-                  <div class="h-5 w-full">
-                    <div class="w-full bg-neutral-500/20 rounded-full h-5 vertical-align-middle">
-                      <div
-                        class="bg-slate-300 h-5 rounded-full text-slate-900 font-bold pl-2 text-xs vertical-align-middle text-left pt-1"
-                        style={`width: ${skill.level * 20}%`}
-                      >
-                        {skill.level}/5
+              Object.keys(categories).map((category) => (
+                <div class="">
+                  <div class="text-white pt-5 uppercase text-center">
+                    {category}
+                  </div>
+                  {categories[category].map((skill) => (
+                    <div class="grid grid-cols-2 text-white pt-5">
+                      {skill.name}
+                      <div class="h-5 w-full">
+                        <div class="w-full bg-neutral-500/20 rounded-full h-5 vertical-align-middle">
+                          <div
+                            class="bg-slate-300 h-5 rounded-full text-slate-900 font-bold pl-2 text-xs vertical-align-middle text-left pt-1"
+                            style={`width: ${skill.level * 20}%`}
+                          >
+                            {skill.level}/5
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-gray-500" title={t("projects")}>
+                        {skill.projects?.join(", ")}
                       </div>
                     </div>
-                  </div>
-                  <div class="text-gray-500" title={t("projects")}>
-                    {skill.projects.join(", ")}
-                  </div>
+                  ))}
                 </div>
               ))
             }
           </div>
-        </a>
+        </div>
         <a href={`/puertofolio/${lang}/skills`} class="button w-button"
           >{t("viewMore")}</a
         >

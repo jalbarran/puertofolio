@@ -3,30 +3,113 @@
         {
             "slug": "4told-fintech",
             "title": "4told Fintech",
-            "description": "Implementacion de Core Fintech (4told)",
+            "description": "Technical Leader",
             "startDate": "Nov 2022",
             "endDate": "Mar 2023",
             "details": {
                 "es": [
-                "Implementacion de una arquitectura de microservicios utilizando Java/Spring y Apache Camel. Introduccion de Kafka para desacoplar procesos críticos.",
-                "Migracion y desarrollo de microservicios especializados en Node.js/Python y automatizacion con Docker y Jenkins.",
-                "Implementacion de arquitectura de microservicios especializados que dan solucion al reto de escalar una plataforma de alto volumen con deuda tecnica acumulada. Reduccion de tiempos de despliegue de horas a minutos y aumento drastico en la fiabilidad del sistema."
+                    "Lideré la organización de ingeniería de una plataforma fintech que maneja transacciones de alto volumen y flujos de trabajo críticos.",
+                    "Diseñé e implementé microservicios utilizando Java, Spring, Camel y Kafka, mejorando el rendimiento y la escalabilidad en toda la plataforma.",
+                    "Modernicé módulos heredados en microservicios de Node.js y Python mantenibles, reduciendo la deuda técnica y mejorando la velocidad de desarrollo.",
+                    "Construí pipelines de CI/CD con Jenkins + Docker, reduciendo los tiempos de implementación de horas a minutos.",
+                    "Implementé arquitecturas orientadas a eventos con Kafka, aumentando la fiabilidad del sistema y reduciendo el acoplamiento de servicios.",
+                    "Establecí pautas de codificación, adopción de TDD y automatización de QA, reduciendo los incidentes de producción.",
+                    "Coordiné equipos multifuncionales de backend, frontend, QA e infraestructura."
                 ],
                 "en": [
-                "Implementacion de una arquitectura de microservicios utilizando Java/Spring y Apache Camel. Introduccion de Kafka para desacoplar procesos críticos.",
-                "Migracion y desarrollo de microservicios especializados en Node.js/Python y automatizacion con Docker y Jenkins.",
-                "Implementacion de arquitectura de microservicios especializados que dan solucion al reto de escalar una plataforma de alto volumen con deuda tecnica acumulada. Reduccion de tiempos de despliegue de horas a minutos y aumento drastico en la fiabilidad del sistema."
+                    "Led the engineering organization of a fintech platform handling high-volume transactions and mission‑critical workflows.",
+                    "Designed and implemented microservices using Java, Spring, Camel, and Kafka, improving performance and scalability across the platform.",
+                    "Modernized legacy modules into maintainable Node.js and Python microservices, reducing technical debt and improving development speed.",
+                    "Built CI/CD pipelines with Jenkins + Docker, cutting deployment times from hours to minutes.",
+                    "Implemented event-driven architectures with Kafka, increasing system reliability and reducing service coupling.",
+                    "Established coding guidelines, TDD adoption, and QA automation, reducing production incidents.",
+                    "Coordinated cross-functional backend, frontend, QA, and infrastructure teams."
                 ]
             },
             "skills": [
-                { "name": "Java", "level": 5 },
-                { "name": "Spring", "level": 5 },
-                { "name": "Apache Camel", "level": 5 },
-                { "name": "Kafka", "level": 5 },
-                { "name": "Docker", "level": 5 },
-                { "name": "Jenkins", "level": 5 },
-                { "name": "Node.js", "level": 4 },
-                { "name": "Python", "level": 4 }
+                { "name": "Java", "level": 5 , "categories": ["backend"]},
+                { "name": "Spring", "level": 5 , "categories": ["backend"]},
+                { "name": "Apache Camel", "level": 5 , "categories": ["backend"]},
+                { "name": "Kafka", "level": 5 , "categories": ["backend"]},
+                { "name": "Docker", "level": 4 , "categories": ["devops"]},
+                { "name": "Git", "level": 4 , "categories": ["devops"]},
+                { "name": "Jenkins", "level": 3 , "categories": ["devops"]},
+                { "name": "Node.js", "level": 4 , "categories": ["backend"]},
+                { "name": "Python", "level": 4 , "categories": ["backend"]},
+                { "name": "AngularJS", "level": 3 , "categories": ["frontend"]},
+                { "name": "JavaScript", "level": 5 , "categories": ["frontend", "backend"]},
+                { "name": "MariaDB", "level": 4 , "categories": ["database"]},
+                { "name": "Oracle", "level": 3 , "categories": ["database"]},
+                { "name": "MongoDB", "level": 4 , "categories": ["database"]},
+                { "name": "Selenium", "level": 3 , "categories": ["testing"]},
+                { "name": "JMeter", "level": 3 , "categories": ["testing"]},
+                { "name": "TDD", "level": 3 , "categories": ["testing"]},
+                { "name": "Confluence", "level": 3 , "categories": ["tools"]},
+                { "name": "Leadership", "level": 4 , "categories": ["soft-skills"]},
+                { "name": "Mentoring", "level": 4 , "categories": ["soft-skills"]},
+                { "name": "Teamwork", "level": 5 , "categories": ["soft-skills"]},
+                { "name": "Communication", "level": 5 , "categories": ["soft-skills"]},
+                { "name": "Problem Solving", "level": 5 , "categories": ["soft-skills"]}
+            ]
+        },
+        {
+            "slug": "3vam",
+            "title": "3vam",
+            "description": "Development Supervisor",
+            "startDate": "Nov 2022",
+            "endDate": "Mar 2023",
+            "details": {
+                "es": [
+                    "Lideré un equipo de desarrolladores que entregaban aplicaciones empresariales utilizadas por departamentos internos y partes interesadas externas.",
+                    "Construí componentes backend en Java EE y optimicé consultas SQL, reduciendo significativamente los tiempos de respuesta.",
+                    "Implementé flujos de trabajo automatizados y refactoricé módulos heredados, mejorando la estabilidad y mantenibilidad.",
+                    "Colaboré con unidades de negocio para definir requisitos y gestionar ciclos de lanzamiento."
+                ],
+                "en": [
+                    "Led a team of developers delivering enterprise applications used by internal departments and external stakeholders.",
+                    "Built backend components in Java EE and optimized SQL queries, reducing response times significantly.",
+                    "Implemented automated workflows and refactored legacy modules, improving stability and maintainability.",
+                    "Collaborated with business units to define requirements and manage release cycles."
+                ]
+            },
+            "skills": [
+                { "name": "Java", "level": 3 , "categories": ["backend"]},
+                { "name": "Tomcat", "level": 3 , "categories": ["backend"]},
+                { "name": "JSP", "level": 3 , "categories": ["backend"]},
+                { "name": "Java EE", "level": 3 , "categories": ["backend"]},
+                { "name": "JavaScript", "level": 3 , "categories": ["frontend"]},
+                { "name": "ExtJS", "level": 3 , "categories": ["frontend"]},
+                { "name": "HTML", "level": 3 , "categories": ["frontend"]},
+                { "name": "CSS", "level": 3 , "categories": ["frontend"]},
+                { "name": "MySQL", "level": 3 , "categories": ["database"]},
+                { "name": "MsSQL", "level": 3 , "categories": ["database"]}
+            ]
+        },
+        {
+            "slug": "bsconsultores",
+            "title": "BS Consultores",
+            "description": "Web Developer",
+            "startDate": "Nov 2022",
+            "endDate": "Mar 2023",
+            "details": {
+                "es": [
+                    "Desarrollé módulos web internos, dashboards y aplicaciones CRUD para clientes del sector público y privado.",
+                    "Entregué dashboards de informes y herramientas de automatización que mejoraron la visibilidad operativa."
+                ],
+                "en": [
+                    "Developed internal web modules, dashboards, and CRUD applications for public and private sector clients.",
+                    "Delivered reporting dashboards and automation tools improving operational visibility.  "
+                ]
+            },
+            "skills": [
+                { "name": "PHP", "level": 3 , "categories": ["backend"]},
+                { "name": "PostgreSQL", "level": 3 , "categories": ["database"]},
+                { "name": "MySQL", "level": 2 , "categories": ["database"]},
+                { "name": "JavaScript", "level": 3 , "categories": ["frontend"]},
+                { "name": "HTML", "level": 3 , "categories": ["frontend"]},
+                { "name": "CSS", "level": 3 , "categories": ["frontend"]},
+                { "name": "ExtJS", "level": 4 , "categories": ["frontend"]},
+                { "name": "AJAX", "level": 4 , "categories": ["frontend"]}                
             ]
         }
     ]

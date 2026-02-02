@@ -13,7 +13,10 @@ const t = useTranslations(lang);
 export async function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
 }
-const allProjects = [...projects, ...personalProjects];
+const aiProjects = (await getCollection("aiProjects")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+const allProjects = [...projects, ...personalProjects, ...aiProjects];
 const skills = allProjects.reduce((acc, project) => {
   project.data.skills.forEach((skill) => {
     if (!acc.some((s) => s.name === skill.name)) {
@@ -21,6 +24,7 @@ const skills = allProjects.reduce((acc, project) => {
         name: skill.name,
         level: skill.level,
         projects: [project.data.title],
+        categories: skill.categories,
       });
     } else {
       const index = acc.findIndex((s) => s.name === skill.name);
@@ -30,6 +34,22 @@ const skills = allProjects.reduce((acc, project) => {
   });
   return acc;
 }, []);
+const categories = {};
+skills.forEach((skill) => {
+  skill.categories?.forEach((category) => {
+    if (!categories[category]) {
+      categories[category] = [];
+    }
+    if (categories[category].some((s) => s.name === skill.name)) {
+      return;
+    }
+    categories[category].push(skill);
+  });
+});
+
+Object.keys(categories).forEach((category) => {
+  categories[category].sort((a, b) => b.level - a.level);
+});
 ---
 
 <Layout
@@ -43,22 +63,29 @@ const skills = allProjects.reduce((acc, project) => {
     <section class="items-container">
       <div>
         {
-          skills.map((skill) => (
-            <div class="grid grid-cols-2 text-white pt-5">
-              {skill.name}
-              <div class="h-5 w-full">
-                <div class="w-full bg-neutral-500/20 rounded-full h-5 vertical-align-middle">
-                  <div
-                    class="bg-slate-300 h-5 rounded-full text-slate-900 font-bold pl-2 text-xs vertical-align-middle text-left pt-1"
-                    style={`width: ${skill.level * 20}%`}
-                  >
-                    {skill.level}/5
+          Object.keys(categories).map((category) => (
+            <div class="">
+              <div class="text-white pt-5 uppercase text-center">
+                {category}
+              </div>
+              {categories[category].map((skill) => (
+                <div class="grid grid-cols-2 text-white pt-5">
+                  {skill.name}
+                  <div class="h-5 w-full">
+                    <div class="w-full bg-neutral-500/20 rounded-full h-5 vertical-align-middle">
+                      <div
+                        class="bg-slate-300 h-5 rounded-full text-slate-900 font-bold pl-2 text-xs vertical-align-middle text-left pt-1"
+                        style={`width: ${skill.level * 20}%`}
+                      >
+                        {skill.level}/5
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-gray-500" title={t("projects")}>
+                    {skill.projects?.join(", ")}
                   </div>
                 </div>
-              </div>
-              <div class="text-gray-500" title={t("projects")}>
-                {skill.projects.join(", ")}
-              </div>
+              ))}
             </div>
           ))
         }

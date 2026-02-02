@@ -4,8 +4,7 @@ const { title, desc, details, lang, type, skills, logo } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<a
-  href={`/puertofolio/${lang}/${type}`}
+<div
   class="projects-container mx-auto rounded-xl shadow-lg overflow-hidden border border-gray-500 bg-neutral-800 p-6"
 >
   <div class="single-projects-category">
@@ -37,4 +36,4 @@ const t = useTranslations(lang);
       </div>
     </div>
   </div>
-</a>
+</div>
